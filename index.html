@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پستانداران ایران</title>
+<meta name="description" content="پایگاه داده‌ی باز گونه‌های پستاندار ایران، برگرفته از Mammal Diversity Database">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,500;1,500;1,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topnav" aria-label="ناوبری اصلی">
+  <div class="wrap topnav-inner">
+    <a href="index.html" class="topnav-brand">پستانداران ایران<span class="dot">.</span></a>
+    <div class="topnav-links">
+      <a href="index.html" class="is-current">خانه</a>
+      <a href="list.html">فهرست گونه‌ها</a>
+      <a href="https://www.mammaldiversity.org" target="_blank" rel="noopener">Mammal Diversity Database</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">نسخه‌ی ۰٫۲ · برگرفته از Mammal Diversity Database</p>
+      <h1>پستانداران ایران<span class="dot">.</span></h1>
+      <p class="tagline">پایگاه داده‌ی باز گونه‌های پستاندار با حضور تأییدشده در ایران — رده‌بندی کامل، وضعیت حفاظتی، و پیوند دائمی برای هر گونه؛ باز و قابل استناد.</p>
+
+      <form class="hero-search" id="heroSearch" role="search">
+        <label class="sr-only" for="heroSearchInput">جست‌وجوی گونه</label>
+        <input id="heroSearchInput" type="search" placeholder="جست‌وجو در نام فارسی، انگلیسی یا علمی…" autocomplete="off">
+        <button type="submit">جست‌وجو</button>
+      </form>
+
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="list.html">مشاهده‌ی فهرست کامل گونه‌ها ←</a>
+        <a class="btn btn--ghost" href="data/species.json">دانلود دیتاست (JSON)</a>
+      </div>
+    </div>
+
+    <a class="featured-card" id="featuredCard" href="list.html" aria-label="گونه‌ی برجسته">
+      <img id="featuredImg" src="assets/img/leopard-hero.jpg" alt="پلنگ ایرانی در طبیعت، تصویر تله‌دوربین">
+      <div class="featured-caption">
+        <p class="featured-eyebrow">از میان دادهٔ پایگاه</p>
+        <p class="featured-name" id="featuredName">پلنگ ایرانی</p>
+        <p class="featured-sci" id="featuredSci">Panthera pardus</p>
+      </div>
+    </a>
+  </div>
+</header>
+
+<section class="stat-band">
+  <div class="wrap stat-band-inner">
+    <div class="stat-item"><dt>گونه‌ها</dt><dd id="statSpecies">–</dd></div>
+    <div class="stat-item"><dt>راسته</dt><dd id="statOrders">–</dd></div>
+    <div class="stat-item"><dt>تیره</dt><dd id="statFamilies">–</dd></div>
+    <div class="stat-item"><dt>بومی ایران</dt><dd id="statEndemic">–</dd></div>
+    <div class="stat-item"><dt>در معرض خطر بحرانی/انقراض</dt><dd id="statThreatened">–</dd></div>
+  </div>
+</section>
+
+<main class="wrap page-sections">
+  <section class="about-section">
+    <h2>دربارهٔ این پایگاه</h2>
+    <p>این پروژه بر الگوی داده‌ای <a href="https://www.mammaldiversity.org" target="_blank" rel="noopener">Mammal Diversity Database</a> (پایگاه ASM برای تنوع پستانداران جهان) بنا شده و برای فهرست پستانداران ایران بازطراحی شده است. هر گونه رده‌بندی کامل تا زیرجنس، وضعیت IUCN، نام‌های مترادف، نمونه‌ی تیپ، و یک پیوند دائمی قابل‌استناد دارد.</p>
+    <p>هدف بعدی، تکمیل پراکنش در سطح ۳۱ استان کشور است — چیزی که در دیتاست جهانی MDD اصلاً وجود ندارد و باید از منابع کارشناسی داخلی جمع‌آوری شود.</p>
+  </section>
+
+  <section class="breakdown-section">
+    <h2>تنوع بر اساس راسته</h2>
+    <ul class="order-breakdown" id="orderBreakdown" aria-label="تعداد گونه به تفکیک راسته"></ul>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>داده‌ی گونه‌ها از <a href="https://www.mammaldiversity.org" target="_blank" rel="noopener">Mammal Diversity Database</a> استخراج شده؛ پراکنش در سطح استان هنوز موجود نیست و در فاز بعد اضافه می‌شود.</p>
+    <p class="mono">بروزرسانی: <span id="lastUpdated">–</span> · هر رکورد دارای شناسه و منبع مجزاست</p>
+  </div>
+</footer>
+
+<script src="assets/home.js"></script>
+</body>
+</html>

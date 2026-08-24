@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فهرست گونه‌ها — پستانداران ایران</title>
+<meta name="description" content="فهرست کامل ۲۱۰ گونه‌ی پستاندار با حضور تأییدشده در ایران، با فیلتر راسته و جست‌وجو">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,500;1,500;1,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topnav" aria-label="ناوبری اصلی">
+  <div class="wrap topnav-inner">
+    <a href="index.html" class="topnav-brand">پستانداران ایران<span class="dot">.</span></a>
+    <div class="topnav-links">
+      <a href="index.html">خانه</a>
+      <a href="list.html" class="is-current">فهرست گونه‌ها</a>
+      <a href="https://www.mammaldiversity.org" target="_blank" rel="noopener">Mammal Diversity Database</a>
+    </div>
+  </div>
+</nav>
+
+<header class="site-head site-head--compact">
+  <div class="wrap">
+    <p class="eyebrow">نسخه‌ی ۰٫۲ · برگرفته از Mammal Diversity Database</p>
+    <h1>فهرست گونه‌ها<span class="dot">.</span></h1>
+    <p class="tagline">همه‌ی گونه‌های پستاندار با حضور تأییدشده در ایران — باز، قابل استناد، در حال تکمیل</p>
+
+    <dl class="stats" id="stats" aria-label="آمار کلی">
+      <div><dt>گونه‌ها</dt><dd id="statSpecies">–</dd></div>
+      <div><dt>بومی ایران</dt><dd id="statEndemic">–</dd></div>
+      <div><dt>در معرض خطر بحرانی/انقراض</dt><dd id="statThreatened">–</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="filter-strip" aria-label="فیلتر راسته">
+  <div class="wrap strip-inner">
+    <button class="chip chip--all is-active" data-order="">همه‌ی راسته‌ها</button>
+    <div id="orderChips" class="chip-row"></div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="toolbar">
+    <label class="search">
+      <span class="sr-only">جست‌وجوی گونه</span>
+      <input id="searchBox" type="search" placeholder="جست‌وجو در نام فارسی، انگلیسی یا علمی…" autocomplete="off">
+    </label>
+    <p class="result-count" id="resultCount" role="status"></p>
+  </div>
+
+  <section id="cardGrid" class="card-grid" aria-live="polite"></section>
+
+  <p id="emptyState" class="empty-state" hidden>
+    هیچ گونه‌ای با این فیلتر ثبت نشده. فیلتر راسته را بردارید یا عبارت جست‌وجو را کوتاه‌تر کنید.
+  </p>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>داده‌ی گونه‌ها از <a href="https://www.mammaldiversity.org" target="_blank" rel="noopener">Mammal Diversity Database</a> استخراج شده؛ پراکنش در سطح استان هنوز موجود نیست و در فاز بعد اضافه می‌شود.</p>
+    <p class="mono">بروزرسانی: <span id="lastUpdated">–</span> · هر رکورد دارای شناسه و منبع مجزاست</p>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
