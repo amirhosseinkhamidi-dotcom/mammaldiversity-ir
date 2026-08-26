@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const state = { data: null, activeOrder: "", query: "" };
+  const state = { data: null, activeOrder: "", activeProvince: "", query: "" };
 
   const els = {
     stats: {
@@ -16,6 +16,7 @@
     grid: document.getElementById("cardGrid"),
     empty: document.getElementById("emptyState"),
     lastUpdated: document.getElementById("lastUpdated"),
+    toolbar: document.querySelector(".toolbar"),
   };
 
   const THREATENED = new Set(["CR", "EN"]);
@@ -42,6 +43,7 @@
     const params = new URLSearchParams(location.search);
     const q = params.get("q");
     const order = params.get("order");
+    const province = params.get("province");
 
     if (q) {
       els.searchBox.value = q;
@@ -55,6 +57,31 @@
         state.activeOrder = order;
       }
     }
+    if (province) {
+      state.activeProvince = province;
+      renderProvinceBadge();
+    }
+  }
+
+  function renderProvinceBadge() {
+    if (!els.toolbar) return;
+    const old = document.getElementById("provinceBadge");
+    if (old) old.remove();
+    if (!state.activeProvince) return;
+
+    const badge = document.createElement("span");
+    badge.id = "provinceBadge";
+    badge.className = "province-badge";
+    badge.innerHTML = `استان: ${state.activeProvince} <button type="button" aria-label="حذف فیلتر استان">×</button>`;
+    badge.querySelector("button").addEventListener("click", () => {
+      state.activeProvince = "";
+      badge.remove();
+      const url = new URL(location.href);
+      url.searchParams.delete("province");
+      history.replaceState(null, "", url);
+      render();
+    });
+    els.toolbar.appendChild(badge);
   }
 
   function renderLoadError() {
@@ -99,6 +126,9 @@
 
   function matches(sp) {
     if (state.activeOrder && sp.order !== state.activeOrder) return false;
+    if (state.activeProvince && !(sp.provinces || []).some((pr) => pr.name === state.activeProvince)) {
+      return false;
+    }
 
     if (!state.query) return true;
     const haystack = [sp.faName, sp.enName, sp.scientificName, sp.family, sp.order]

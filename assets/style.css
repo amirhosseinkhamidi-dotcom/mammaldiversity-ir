@@ -366,6 +366,70 @@ a{ color: var(--teal-deep); text-decoration-thickness: 1px; }
   .order-bar-row{ grid-template-columns: 90px 1fr 28px; }
 }
 
+/* ================= province map ================= */
+.map-layout{
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+@media (max-width: 780px){
+  .map-layout{ grid-template-columns: 1fr; }
+}
+.map-svg-wrap{
+  background: var(--bg-tint);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+}
+.map-svg-wrap svg{ width: 100%; height: auto; display: block; }
+path.province{
+  fill: var(--bg-warm-deep);
+  stroke: var(--bg);
+  stroke-width: 1;
+  cursor: pointer;
+  transition: fill 0.12s ease;
+}
+path.province:hover{ fill: var(--gold); }
+path.province.has-data{ fill: var(--teal); }
+path.province.has-data:hover{ fill: var(--teal-deep); }
+
+.map-side{
+  position: sticky;
+  top: 76px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-card);
+  min-height: 120px;
+}
+.map-side-hint{ color: var(--ink-faint); font-size: 0.9rem; margin: 0; }
+.map-side-province{
+  font-family: var(--font-sci);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+.map-side-count{
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--teal-deep);
+  margin: 0;
+}
+.map-side-empty{
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+.map-side-empty-sub{
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
 /* ================= filter strip ================= */
 .filter-strip{
   background: var(--bg-warm);
@@ -437,6 +501,25 @@ a{ color: var(--teal-deep); text-decoration-thickness: 1px; }
   font-size: 0.8rem;
   color: var(--ink-soft);
   margin: 0;
+}
+.province-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--teal-soft);
+  color: var(--teal-deep);
+}
+.province-badge button{
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
 }
 
 /* ================= card grid ================= */
