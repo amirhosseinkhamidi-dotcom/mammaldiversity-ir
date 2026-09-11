@@ -1,3 +1,18 @@
+/* ================= self-hosted fonts =================
+   Vazirmatn از Google Fonts حذف و این‌جا self-host شد — fonts.googleapis.com
+   در ایران (مخاطب اصلی این سایت) اغلب کند یا فیلتر است؛ بدون این فونت،
+   مرورگر برای متن فارسی به فونت سیستمی برمی‌گردد که ظاهرش عربی/نامتناسب
+   به‌نظر می‌رسد. منبع: rastikerdar/vazirmatn (OFL 1.1) — پروانه در
+   assets/fonts/Vazirmatn-OFL.txt. */
+@font-face{
+  font-family: 'Vazirmatn';
+  src: url('fonts/Vazirmatn%5Bwght%5D.woff2') format('woff2-variations'),
+       url('fonts/Vazirmatn%5Bwght%5D.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ================= tokens ================= */
 :root{
   --bg:         #ffffff;
@@ -71,8 +86,8 @@ a{ color: var(--teal-deep); text-decoration-thickness: 1px; }
   display: flex;
   align-items: baseline;
   gap: 8px;
-  font-family: var(--font-sci);
-  font-weight: 600;
+  font-family: var(--font-fa);
+  font-weight: 700;
   font-size: 1.05rem;
   color: var(--ink);
   text-decoration: none;
@@ -112,10 +127,10 @@ a{ color: var(--teal-deep); text-decoration-thickness: 1px; }
   text-transform: uppercase;
 }
 .site-head h1{
-  font-family: var(--font-sci);
+  font-family: var(--font-fa);
   font-size: clamp(2.1rem, 5vw, 3.2rem);
   margin: 0;
-  font-weight: 600;
+  font-weight: 800;
   color: var(--ink);
 }
 .site-head h1 .dot{ color: var(--seal); }
@@ -174,10 +189,10 @@ a{ color: var(--teal-deep); text-decoration-thickness: 1px; }
   .hero-grid{ grid-template-columns: 1fr; }
 }
 .hero-text h1{
-  font-family: var(--font-sci);
+  font-family: var(--font-fa);
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   margin: 0;
-  font-weight: 600;
+  font-weight: 800;
   color: var(--ink);
 }
 .hero-text h1 .dot{ color: var(--seal); }
@@ -307,9 +322,9 @@ a{ color: var(--teal-deep); text-decoration-thickness: 1px; }
 .page-sections{ padding: 44px 0 60px; }
 .about-section{ max-width: 68ch; margin-bottom: 44px; }
 .about-section h2, .breakdown-section h2{
-  font-family: var(--font-sci);
+  font-family: var(--font-fa);
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 14px;
   color: var(--ink);
 }
@@ -407,9 +422,9 @@ path.province.has-data:hover{ fill: var(--teal-deep); }
 }
 .map-side-hint{ color: var(--ink-faint); font-size: 0.9rem; margin: 0; }
 .map-side-province{
-  font-family: var(--font-sci);
+  font-family: var(--font-fa);
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 6px;
   color: var(--ink);
 }
@@ -709,9 +724,9 @@ path.province.has-data:hover{ fill: var(--teal-deep); }
   box-shadow: var(--shadow-card);
 }
 .panel h2{
-  font-family: var(--font-sci);
+  font-family: var(--font-fa);
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 16px;
   color: var(--ink);
 }
@@ -845,7 +860,7 @@ path.province.has-data:hover{ fill: var(--teal-deep); }
   padding: 80px 20px;
   text-align: center;
 }
-.not-found h1{ font-family: var(--font-sci); font-size: 1.6rem; }
+.not-found h1{ font-family: var(--font-fa); font-weight: 700; font-size: 1.6rem; }
 .not-found p{ color: var(--ink-soft); }
 
 /* ================= footer ================= */
