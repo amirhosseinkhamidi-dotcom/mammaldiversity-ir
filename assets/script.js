@@ -36,7 +36,7 @@
     bindEvents();
     applyUrlParams();
     render();
-    els.lastUpdated.textContent = state.data.meta.updated;
+    els.lastUpdated.textContent = faDigits(state.data.meta.updated);
   }
 
   function applyUrlParams() {
@@ -103,7 +103,7 @@
       const btn = document.createElement("button");
       btn.className = "chip";
       btn.dataset.order = name;
-      btn.innerHTML = `${name}<span class="tab-count">${counts[name]}</span>`;
+      btn.innerHTML = `${name}<span class="tab-count">${faDigits(counts[name])}</span>`;
       els.orderChips.appendChild(btn);
     });
   }
@@ -140,13 +140,13 @@
   function render() {
     const list = state.data.species.filter(matches);
 
-    els.stats.species.textContent = state.data.species.length;
-    els.stats.endemic.textContent = state.data.species.filter((sp) => sp.endemic).length;
-    els.stats.threatened.textContent = state.data.species.filter((sp) =>
-      THREATENED.has(sp.iucn)
-    ).length;
+    els.stats.species.textContent = faDigits(state.data.species.length);
+    els.stats.endemic.textContent = faDigits(state.data.species.filter((sp) => sp.endemic).length);
+    els.stats.threatened.textContent = faDigits(
+      state.data.species.filter((sp) => THREATENED.has(sp.iucn)).length
+    );
 
-    els.resultCount.textContent = `${list.length} از ${state.data.species.length} گونه`;
+    els.resultCount.textContent = faDigits(`${list.length} از ${state.data.species.length} گونه`);
     els.empty.hidden = list.length !== 0;
 
     els.grid.innerHTML = list.map(cardHTML).join("");

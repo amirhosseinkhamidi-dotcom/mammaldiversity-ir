@@ -221,9 +221,9 @@
 
     return `
       <section class="panel">
-        <h2>نام‌ها و مترادف‌ها <span class="count-badge">(${names.length})</span></h2>
+        <h2>نام‌ها و مترادف‌ها <span class="count-badge">(${faDigits(names.length)})</span></h2>
         <details ${isLong ? "" : "open"}>
-          <summary>${isLong ? `نمایش همه‌ی ${names.length} نام` : "نام‌های ثبت‌شده"}</summary>
+          <summary>${isLong ? `نمایش همه‌ی ${faDigits(names.length)} نام` : "نام‌های ثبت‌شده"}</summary>
           <ul class="synonym-list">${items}</ul>
         </details>
       </section>`;
@@ -239,9 +239,9 @@
 
     return `
       <section class="panel">
-        <h2>زیرگونه‌ها <span class="count-badge">(${entries.length})</span></h2>
+        <h2>زیرگونه‌ها <span class="count-badge">(${faDigits(entries.length)})</span></h2>
         <details ${isLong ? "" : "open"}>
-          <summary>${isLong ? `نمایش همه‌ی ${entries.length} زیرگونه` : "فهرست زیرگونه‌ها"}</summary>
+          <summary>${isLong ? `نمایش همه‌ی ${faDigits(entries.length)} زیرگونه` : "فهرست زیرگونه‌ها"}</summary>
           <ul class="synonym-list">${html}</ul>
         </details>
       </section>`;
@@ -258,7 +258,7 @@
         return `<span class="country-tag${isIran ? " is-iran" : ""}">${escapeHTML(c)}</span>`;
       })
       .join("");
-    const moreTag = rest > 0 ? `<span class="country-more">+${rest} کشور دیگر</span>` : "";
+    const moreTag = rest > 0 ? `<span class="country-more">+${faDigits(rest)} کشور دیگر</span>` : "";
 
     const meta = [];
     if (dist.continents && dist.continents.length) {
@@ -277,7 +277,7 @@
 
     return `
       <section class="panel">
-        <h2>پراکنش جهانی <span class="count-badge">(${countries.length} کشور)</span></h2>
+        <h2>پراکنش جهانی <span class="count-badge">(${faDigits(countries.length)} کشور)</span></h2>
         ${countries.length ? `<div class="country-list">${countryTags}${moreTag}</div>` : `<p style="color:var(--ink-soft);font-size:0.88rem">داده‌ی پراکنشی ثبت نشده.</p>`}
         ${meta.length ? `<table class="taxo-table" style="margin-top:14px"><tbody>${meta.join("")}</tbody></table>` : ""}
         ${notes}

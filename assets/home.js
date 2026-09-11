@@ -38,7 +38,7 @@
     renderStats(data.species);
     renderOrderBreakdown(data.species);
     linkFeaturedSpecies(data.species);
-    if (els.lastUpdated) els.lastUpdated.textContent = data.meta.updated;
+    if (els.lastUpdated) els.lastUpdated.textContent = faDigits(data.meta.updated);
   }
 
   function bindSearch() {
@@ -51,11 +51,11 @@
   }
 
   function renderStats(species) {
-    els.stats.species.textContent = species.length;
-    els.stats.orders.textContent = new Set(species.map((sp) => sp.order)).size;
-    els.stats.families.textContent = new Set(species.map((sp) => sp.family)).size;
-    els.stats.endemic.textContent = species.filter((sp) => sp.endemic).length;
-    els.stats.threatened.textContent = species.filter((sp) => THREATENED.has(sp.iucn)).length;
+    els.stats.species.textContent = faDigits(species.length);
+    els.stats.orders.textContent = faDigits(new Set(species.map((sp) => sp.order)).size);
+    els.stats.families.textContent = faDigits(new Set(species.map((sp) => sp.family)).size);
+    els.stats.endemic.textContent = faDigits(species.filter((sp) => sp.endemic).length);
+    els.stats.threatened.textContent = faDigits(species.filter((sp) => THREATENED.has(sp.iucn)).length);
   }
 
   function renderOrderBreakdown(species) {
@@ -75,7 +75,7 @@
             <a class="order-bar-row" href="list.html?order=${encodeURIComponent(name)}">
               <span class="order-bar-label">${name}</span>
               <span class="order-bar-track"><span class="order-bar-fill" style="width:${pct}%"></span></span>
-              <span class="order-bar-count">${count}</span>
+              <span class="order-bar-count">${faDigits(count)}</span>
             </a>
           </li>`;
       })

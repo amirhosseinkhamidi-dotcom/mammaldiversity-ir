@@ -40,7 +40,7 @@
   function showHint(name, count) {
     side.innerHTML = `
       <p class="map-side-province">${escapeHTML(name)}</p>
-      <p class="map-side-count">${count > 0 ? `${count} گونه ثبت‌شده` : "داده‌ی پراکنشی ثبت نشده"}</p>
+      <p class="map-side-count">${count > 0 ? `${faDigits(count)} گونه ثبت‌شده` : "داده‌ی پراکنشی ثبت نشده"}</p>
     `;
   }
 
